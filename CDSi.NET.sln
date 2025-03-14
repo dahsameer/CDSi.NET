@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{DE3A5DFE-1622-4DCB-8517-C782C63B754C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDSi.NET", "src\CDSi.NET\CDSi.NET.csproj", "{CBE36735-C2D4-448E-B8B7-7EA82B7416F9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{548DA93C-E32A-488E-9B27-B8FE6F4EF1DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDSi.NET.Test", "test\CDSi.NET.Test\CDSi.NET.Test.csproj", "{04C50FAA-A515-433E-B4CD-77E1112D899B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CBE36735-C2D4-448E-B8B7-7EA82B7416F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CBE36735-C2D4-448E-B8B7-7EA82B7416F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CBE36735-C2D4-448E-B8B7-7EA82B7416F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CBE36735-C2D4-448E-B8B7-7EA82B7416F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{04C50FAA-A515-433E-B4CD-77E1112D899B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04C50FAA-A515-433E-B4CD-77E1112D899B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04C50FAA-A515-433E-B4CD-77E1112D899B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04C50FAA-A515-433E-B4CD-77E1112D899B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CBE36735-C2D4-448E-B8B7-7EA82B7416F9} = {DE3A5DFE-1622-4DCB-8517-C782C63B754C}
+		{04C50FAA-A515-433E-B4CD-77E1112D899B} = {548DA93C-E32A-488E-9B27-B8FE6F4EF1DD}
+	EndGlobalSection
+EndGlobal
