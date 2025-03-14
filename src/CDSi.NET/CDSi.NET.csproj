@@ -1,9 +1,43 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Chikungunya-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Cholera-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- COVID-19-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Dengue-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Diphtheria-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Ebola-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- HepA-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- HepB-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Hib-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- HPV-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Influenza-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- JE-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Measles-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Meningococcal B-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Meningococcal-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Mumps-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Orthopoxvirus-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Pertussis-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Pneumococcal-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Polio-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Rabies-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Rotavirus-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- RSV-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Rubella-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- TBE-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Tetanus-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Typhoid-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Varicella-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- YF-508.xml" />
+		<EmbeddedResource Include="Resources\AntigenSupportingData- Zoster-508.xml" />
+		<EmbeddedResource Include="Resources\ScheduleSupportingData.xml" />
+	</ItemGroup>
 
 </Project>
