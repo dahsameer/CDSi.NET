@@ -20,7 +20,7 @@ internal static class TestUtilities
 		var doses = new List<ImmunizationRecord>();
 		for (var i = 1; i <= 7; i++)
 		{
-			if (string.IsNullOrWhiteSpace(row.Field<string>($"CVX_{i}"))) break;
+			if (string.IsNullOrWhiteSpace(row[$"CVX_{i}"]?.ToString())) break;
 			doses.Add(row.AsDose(i));
 		}
 		return doses;
@@ -30,8 +30,8 @@ internal static class TestUtilities
 	{
 		return new ImmunizationRecord()
 		{
-			CVX = row.Field<string>($"CVX_{num}")!,
-			MVX = row.Field<string>($"MVX_{num}"),
+			CVX = row[$"CVX_{num}"]?.ToString()!,
+			MVX = row[$"MVX_{num}"]?.ToString()!,
 			AdministeredDate = row.Field<DateTime>($"Date_Administered_{num}")!,
 		};
 	}
