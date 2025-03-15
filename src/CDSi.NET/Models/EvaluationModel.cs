@@ -5,11 +5,12 @@ public record EvaluationRequest
 {
 	public Patient? Patient { get; set; }
 	public List<ImmunizationRecord>? Immunizations { get; set; }
-	public DateTime EvaluationDate { get; set; }
+	public DateTime AssessmentDate { get; set; }
 }
 
 public record Patient
 {
+	public string? Id { get; set; } // if needed to track later on
 	public DateTime DOB { get; set; }
 	public Gender Gender { get; set; }
 }

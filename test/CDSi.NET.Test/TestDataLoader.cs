@@ -42,7 +42,7 @@ internal static class TestDataLoader
 	private static DataSet GetTestData(TestType type)
 	{
 		Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
-		var assembly = Assembly.GetAssembly(typeof(MainTest))!;
+		var assembly = Assembly.GetAssembly(typeof(CDSiTest))!;
 		var resourceName = testResource[type];
 		using var stream = assembly.GetManifestResourceStream(resourceName);
 		using var reader = ExcelReaderFactory.CreateReader(stream);

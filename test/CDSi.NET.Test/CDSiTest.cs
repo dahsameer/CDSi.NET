@@ -2,9 +2,8 @@ using CDSi.NET.Test.Models;
 
 namespace CDSi.NET.Test;
 
-public class MainTest
+public class CDSiTest
 {
-
 	[Theory]
 	[MemberData(nameof(TestDataLoader.LoadHealthyData), MemberType = typeof(TestDataLoader))]
 	internal void HealthyTest(HealthyTest test)

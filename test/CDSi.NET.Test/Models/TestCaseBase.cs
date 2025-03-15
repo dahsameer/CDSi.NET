@@ -13,7 +13,8 @@ internal class TestCaseBase
 		Patient = dr.AsPatient();
 		Vaccines = dr.AsDoses();
 		SeriesStatus = dr.Field<string>("Series_Status")!;
-		EvaluationDate = dr.Field<DateTime>("Assessment_Date");
+		AssessmentDate = dr.Field<DateTime>("Assessment_Date");
+		VaccineGroup = dr.Field<string>("Vaccine_Group")!;
 	}
 
 
@@ -21,7 +22,8 @@ internal class TestCaseBase
 	public string TestName { get; set; }
 	public Patient Patient { get; set; }
 	public string SeriesStatus { get; set; }
-	public DateTime EvaluationDate { get; set; }
+	public DateTime AssessmentDate { get; set; }
+	public string VaccineGroup { get; set; }
 	public List<ImmunizationRecord> Vaccines { get; set; }
 }
 
