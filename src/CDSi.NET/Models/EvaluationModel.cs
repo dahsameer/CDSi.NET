@@ -4,7 +4,7 @@ namespace CDSi.NET.Models;
 public record EvaluationRequest
 {
 	public Patient? Patient { get; set; }
-	public List<ImmunizationRecord>? Immunizations { get; set; }
+	public List<VaccineDoseAdministered>? Immunizations { get; set; }
 	public DateTime AssessmentDate { get; set; }
 }
 
@@ -13,6 +13,7 @@ public record Patient
 	public string? Id { get; set; } // if needed to track later on
 	public DateTime DOB { get; set; }
 	public Gender Gender { get; set; }
+	public Observation[] Observations { get; set; } = [];
 }
 
 public enum Gender
@@ -22,7 +23,7 @@ public enum Gender
 	Unknown
 }
 
-public record ImmunizationRecord
+public record VaccineDoseAdministered
 {
 	public string? Name { get; set; }
 	public string? CVX { get; set; }
@@ -30,11 +31,21 @@ public record ImmunizationRecord
 	public DateTime AdministeredDate { get; set; }
 }
 
-public enum VaccineStatus
+public record Observation
+{
+	public required string ObservationCode { get; set; }
+	public string? ObservationCodingSystem { get; set; }
+	public DateTime? ObservationDate { get; set; }
+	public string? ObservationValue { get; set; }
+	public DateTime? StartDate { get; set; }
+	public DateTime? EndDate { get; set; }
+}
+
+public enum EvaluationStatus
 {
 	/// <summary>
-	/// An evaluation status that indicates the vaccine dose administered was not administered according to ACIP recommendations,
-	/// but the dose does not need to be repeated (including maximum age and extra doses) 
+	/// An evaluation status that indicates the vaccine dose administered was not administered according to ACIP 
+	/// recommendations, but the dose does not need to be repeated (including maximum age and extra doses)
 	/// </summary>
 	Extraneous,
 	/// <summary>
