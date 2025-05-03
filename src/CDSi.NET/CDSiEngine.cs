@@ -38,7 +38,7 @@ public class CDSiEngine
 		{
 			throw new Exception("CDSi engine is not initialized. Call Initialize() method before using this method.");
 		}
-		var organizedHistory = EvaluationHelper.OrganizeImmunizationHistory(request.Immunizations!, _scheduleData!);
+		var organizedHistory = EvaluationHelper.OrganizeImmunizationHistory(request, _scheduleData!);
 
 	}
 }

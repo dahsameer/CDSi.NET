@@ -1,4 +1,5 @@
-﻿using CDSi.NET.Models;
+﻿using CDSi.NET.DateUtilities;
+using CDSi.NET.Models;
 using CDSi.NET.Models.Generated;
 
 namespace CDSi.NET.Utils;
@@ -11,14 +12,15 @@ internal class EvaluationHelper
 	/// <param name="vaccines"></param>
 	/// <param name="scheduleSupportingData"></param>
 	/// <returns></returns>
-	public static Dictionary<string, List<VaccineDoseAdministered>> OrganizeImmunizationHistory(IEnumerable<VaccineDoseAdministered> vaccines, scheduleSupportingData scheduleSupportingData)
+	public static Dictionary<string, List<VaccineDoseAdministered>> OrganizeImmunizationHistory(EvaluationRequest request, scheduleSupportingData scheduleSupportingData)
 	{
+		var vaccines = request.Immunizations?.OrderBy(x => x.AdministeredDate);
+
 		if (vaccines == null || scheduleSupportingData?.cvxToAntigenMap == null)
 			return []; // Return empty list if input is invalid
 
 		// 1. Create a flat list pairing each relevant antigen with the original dose administered.
 		var antigenDosePairs = new Dictionary<string, List<VaccineDoseAdministered>>();
-		vaccines = vaccines.OrderBy(x => x.AdministeredDate);
 		foreach (var vaccineDose in vaccines)
 		{
 			if (string.IsNullOrEmpty(vaccineDose.CVX)) continue; // Skip doses without CVX
@@ -35,6 +37,23 @@ internal class EvaluationHelper
 			{
 				if (string.IsNullOrEmpty(association.antigen)) continue;
 
+				if(!string.IsNullOrWhiteSpace(association.associationBeginAge))
+				{
+					var validBeginAge = DateEvaluator.CalculateDate(request.Patient.DOB, association.associationBeginAge);
+					if(DateTime.Compare(validBeginAge, DateTime.Now) < 0)
+					{
+						continue; // Skip if the dose is before the association begin age
+					}
+				}
+
+				if (!string.IsNullOrWhiteSpace(association.associationEndAge))
+				{
+					var validEndAge = DateEvaluator.CalculateDate(request.Patient.DOB, association.associationEndAge);
+					if (DateTime.Compare(validEndAge, DateTime.Now) > 0)
+					{
+						continue; // Skip if the dose is after the association end age
+					}
+				}
 				// TODO: Implement age filtering if AssociationBeginAge/AssociationEndAge are available
 				// Requires Patient DOB to calculate age at administration.
 				// For now, we add all associated antigens.

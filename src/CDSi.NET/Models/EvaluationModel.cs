@@ -3,7 +3,7 @@ namespace CDSi.NET.Models;
 
 public record EvaluationRequest
 {
-	public Patient? Patient { get; set; }
+	public required Patient Patient { get; set; }
 	public List<VaccineDoseAdministered>? Immunizations { get; set; }
 	public DateTime AssessmentDate { get; set; }
 }
