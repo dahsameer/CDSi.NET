@@ -9,6 +9,10 @@ public static class SupportingDataHelper
 	private const string SCHEDULE_SUPPORTING_DATA_RESOURCE_NAME = "CDSi.NET.Resources.ScheduleSupportingData.xml";
 	private const string ANTIGEN_SUPPORTING_DATA_RESOURCE_PATTERN = "CDSi.NET.Resources.AntigenSupportingData- ";
 
+	/// <summary>
+	/// Reads the antigen supporting data from the embedded resources.
+	/// </summary>
+	/// <returns>Dictionary of key: antigen name | value: antigen supportind data for that antigen</returns>
 	public static Dictionary<string, antigenSupportingData> ReadAntigenData()
 	{
 		var deserializer = new XmlSerializer(typeof(antigenSupportingData));
@@ -22,6 +26,10 @@ public static class SupportingDataHelper
 			  .ToDictionary(x => x.Key, x => x.Value);
 	}
 
+	/// <summary>
+	/// Reads the schedule supporting data from the embedded resources.
+	/// </summary>
+	/// <returns>Schedule Supporting data model</returns>
 	public static scheduleSupportingData ReadScheduleData()
 	{
 		var assembly = Assembly.GetAssembly(typeof(SupportingDataHelper))!;

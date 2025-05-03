@@ -26,7 +26,7 @@ public enum Gender
 public record VaccineDoseAdministered
 {
 	public string? Name { get; set; }
-	public string? CVX { get; set; }
+	public required string CVX { get; set; }
 	public string? MVX { get; set; }
 	public DateTime AdministeredDate { get; set; }
 }
