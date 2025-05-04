@@ -11,11 +11,9 @@ public class CDSiTest
 		CDSiEngine.Initialize();
 		CDSiEngine.EvaluateSeries(new NET.Models.EvaluationRequest
 		{
-			Patient = new NET.Models.Patient
-			{
-				DOB = new DateTime(1998, 02, 08),
-				Gender = NET.Models.Gender.Male,
-			}
+			Patient = test.Patient,
+			Immunizations = test.Vaccines,
+			AssessmentDate = test.AssessmentDate
 		});
 		Assert.Equal(test.TestId, test.TestId);
 	}
