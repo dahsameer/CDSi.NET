@@ -8,8 +8,8 @@ public class CDSiEngine
 {
 	private static bool _isInitialized = false;
 
-	private static Dictionary<string, antigenSupportingData>? _antigenData = null;
-	private static scheduleSupportingData? _scheduleData = null;
+	private static Dictionary<string, antigenSupportingData> _antigenData = null!;
+	private static scheduleSupportingData _scheduleData = null!;
 
 	/// <summary>
 	/// Initializes the CDSi engine. This method should be called before using any other methods in the library.
@@ -26,8 +26,6 @@ public class CDSiEngine
 		}
 		catch (Exception ex)
 		{
-			_antigenData = null;
-			_scheduleData = null;
 			throw new Exception("Error initializing CDSi engine: " + ex.Message, ex);
 		}
 	}
@@ -39,9 +37,9 @@ public class CDSiEngine
 			throw new Exception("CDSi engine is not initialized. Call Initialize() method before using this method.");
 		}
 		var organizedHistory = EvaluationHelper.OrganizeImmunizationHistory(request, _scheduleData!);
-		foreach(var x in organizedHistory.Keys)
+		foreach(var antigen in _antigenData.Keys)
 		{
-			Console.WriteLine(x);
+
 		}
 	}
 }
