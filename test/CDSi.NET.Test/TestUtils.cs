@@ -1,5 +1,6 @@
 using System.Data;
 using CDSi.NET.Models;
+using CDSi.NET.Utils;
 
 namespace CDSi.NET.Test;
 
@@ -11,7 +12,7 @@ internal static class TestUtilities
 		return new Patient()
 		{
 			DOB = row.Field<DateTime>("DOB"),
-			Gender = GetGender(row.Field<string>("Gender")!)
+			Gender = MiscUtils.GetGender(row.Field<string>("Gender")!)
 		};
 	}
 
@@ -33,16 +34,6 @@ internal static class TestUtilities
 			CVX = row[$"CVX_{num}"]?.ToString()!,
 			MVX = row[$"MVX_{num}"]?.ToString()!,
 			AdministeredDate = row.Field<DateTime>($"Date_Administered_{num}")!,
-		};
-	}
-
-	public static Gender GetGender(string gender)
-	{
-		return gender.ToLower() switch
-		{
-			"m" or "male" => Gender.Male,
-			"f" or "female" => Gender.Female,
-			_ => Gender.Unknown
 		};
 	}
 }
