@@ -486,7 +486,7 @@ public partial class scheduleSupportingDataObservation
 
 	private string clarifyingTextField;
 
-	private scheduleSupportingDataObservationCodedValuesCodedValue[][] codedValuesField;
+	private scheduleSupportingDataObservationCodedValuesCodedValue[] codedValuesField;
 
 	/// <remarks/>
 	public string observationCode
@@ -568,7 +568,7 @@ public partial class scheduleSupportingDataObservation
 
 	/// <remarks/>
 	[System.Xml.Serialization.XmlArrayItemAttribute("codedValue", typeof(scheduleSupportingDataObservationCodedValuesCodedValue), IsNullable = false)]
-	public scheduleSupportingDataObservationCodedValuesCodedValue[][] codedValues
+	public scheduleSupportingDataObservationCodedValuesCodedValue[] codedValues
 	{
 		get
 		{

@@ -15,9 +15,9 @@ internal static class TestUtilities
 		};
 	}
 
-	public static List<ImmunizationRecord> AsDoses(this DataRow row)
+	public static List<VaccineDoseAdministered> AsDoses(this DataRow row)
 	{
-		var doses = new List<ImmunizationRecord>();
+		var doses = new List<VaccineDoseAdministered>();
 		for (var i = 1; i <= 7; i++)
 		{
 			if (string.IsNullOrWhiteSpace(row[$"CVX_{i}"]?.ToString())) break;
@@ -26,9 +26,9 @@ internal static class TestUtilities
 		return doses;
 	}
 
-	public static ImmunizationRecord AsDose(this DataRow row, int num)
+	public static VaccineDoseAdministered AsDose(this DataRow row, int num)
 	{
-		return new ImmunizationRecord()
+		return new VaccineDoseAdministered()
 		{
 			CVX = row[$"CVX_{num}"]?.ToString()!,
 			MVX = row[$"MVX_{num}"]?.ToString()!,

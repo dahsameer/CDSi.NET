@@ -24,7 +24,7 @@ internal class TestCaseBase
 	public string SeriesStatus { get; set; }
 	public DateTime AssessmentDate { get; set; }
 	public string VaccineGroup { get; set; }
-	public List<ImmunizationRecord> Vaccines { get; set; }
+	public List<VaccineDoseAdministered> Vaccines { get; set; }
 }
 
 internal class HealthyTest(DataRow dr) : TestCaseBase(dr)

@@ -8,6 +8,15 @@ public class CDSiTest
 	[MemberData(nameof(TestDataLoader.LoadHealthyData), MemberType = typeof(TestDataLoader))]
 	internal void HealthyTest(HealthyTest test)
 	{
+		CDSiEngine.Initialize();
+		CDSiEngine.EvaluateSeries(new NET.Models.EvaluationRequest
+		{
+			Patient = new NET.Models.Patient
+			{
+				DOB = new DateTime(1998, 02, 08),
+				Gender = NET.Models.Gender.Male,
+			}
+		});
 		Assert.Equal(test.TestId, test.TestId);
 	}
 

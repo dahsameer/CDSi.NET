@@ -65,4 +65,5 @@ internal class EvaluationHelper
 
 		return antigenDosePairs.OrderBy(x => x.Key).ToDictionary();
 	}
+
 }
