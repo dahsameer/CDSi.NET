@@ -38,10 +38,7 @@ public class CDSiEngine
 			throw new Exception("CDSi engine is not initialized. Call Initialize() method before using this method.");
 		}
 		var organizedHistory = EvaluationHelper.OrganizeImmunizationHistory(request, _scheduleData!);
-		List<antigenSupportingDataSeries> relevant_series = [];
-
-		// 4.3 CREATE RELEVANT PATIENT SERIES 
-		FindRelevantSeries(request.Patient, relevant_series);
+		List<antigenSupportingDataSeries> relevant_series = FindRelevantSeries(request.Patient);
 
 		foreach (var series in relevant_series)
 		{
@@ -54,8 +51,9 @@ public class CDSiEngine
 	/// </summary>
 	/// <param name="patient"></param>
 	/// <param name="relevant_series"></param>
-	private static void FindRelevantSeries(Patient patient, List<antigenSupportingDataSeries> relevant_series)
+	private static List<antigenSupportingDataSeries> FindRelevantSeries(Patient patient)
 	{
+		List<antigenSupportingDataSeries> relevant_series = [];
 		foreach (var antigen in _antigenData)
 		{
 			foreach (var series in antigen.Value.series)
@@ -73,6 +71,7 @@ public class CDSiEngine
 				}
 			}
 		}
+		return relevant_series;
 	}
 
 	/// <summary>
